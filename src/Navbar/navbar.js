@@ -37,6 +37,7 @@ const Navbar = () => {
         </div>
         <Link activeClass='active' className="ListItem"><FontAwesomeIcon icon={faBell} /> Notifications</Link>
         <Link activeClass='active' to='/cart' className="ListItem"><FontAwesomeIcon icon={faCartShopping} /> Cart</Link>
+        <Link activeClass='active' to='/wishlist' className="ListItem"><FontAwesomeIcon icon={faHeart} /> Wishlist</Link>
         <Link activeClass='active' to="/login" className="ListItem"><FontAwesomeIcon icon={faUser} />  Login</Link>
         <Link activeClass='active' to="/signup" className="ListItem"><FontAwesomeIcon icon={faUserPlus} />  Signup</Link>
         
