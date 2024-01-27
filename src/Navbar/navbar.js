@@ -35,11 +35,11 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faSearch} className="search-icon" id='search' />
           <input type="text" placeholder="Search..." className='search-container' id='search' />
         </div>
-        <Link activeClass='active' className="ListItem"><FontAwesomeIcon icon={faBell} /> Notifications</Link>
-        <Link activeClass='active' to='/cart' className="ListItem"><FontAwesomeIcon icon={faCartShopping} /> Cart</Link>
-        <Link activeClass='active' to='/wishlist' className="ListItem"><FontAwesomeIcon icon={faHeart} /> Wishlist</Link>
-        <Link activeClass='active' to="/login" className="ListItem"><FontAwesomeIcon icon={faUser} />  Login</Link>
-        <Link activeClass='active' to="/signup" className="ListItem"><FontAwesomeIcon icon={faUserPlus} />  Signup</Link>
+        <Link activeClass='active' className="ListItem"><FontAwesomeIcon icon={faBell} onClick={()=>{setShowMenu(false)}}/> Notifications</Link>
+        <Link activeClass='active' to='/cart' className="ListItem"><FontAwesomeIcon icon={faCartShopping} onClick={()=>{setShowMenu(false)}}/> Cart</Link>
+        <Link activeClass='active' to='/wishlist' className="ListItem"><FontAwesomeIcon icon={faHeart} onClick={()=>{setShowMenu(false)}}/> Wishlist</Link>
+        <Link activeClass='active' to="/login" className="ListItem"><FontAwesomeIcon icon={faUser} onClick={()=>{setShowMenu(false)}}/>  Login</Link>
+        <Link activeClass='active' to="/signup" className="ListItem"><FontAwesomeIcon icon={faUserPlus} onClick={()=>{setShowMenu(false)}}/>  Signup</Link>
         
       </div>
 
