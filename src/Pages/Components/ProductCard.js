@@ -6,9 +6,9 @@ import { faHeart as after } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 // import { addItem } from '../redux/reducer/cart';
-import { addItemWishList } from '../redux/reducer/wishlist';
+import { addItemWishList }from '../../redux/reducer/wishlist';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({product }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

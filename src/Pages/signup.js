@@ -2,8 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 import '../../src/form.css'
-
-import Illustration from '../Login/illustration.svg'
+import Illustration from '../data/illustration.svg'
 
 
 function Signup() {

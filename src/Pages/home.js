@@ -1,9 +1,9 @@
 import React from 'react';
-import ImageCarousel from './ImageCarousel';
-import './home.css';
+import ImageCarousel from './Components/ImageCarousel';
+import './Styles/home.css';
 import { Link } from 'react-router-dom';
 import { products } from '../data/Products';
-import ProductCard from '../ProductCard/ProductCard';
+import ProductCard from './Components/ProductCard'
 
 
 const Home = () => {

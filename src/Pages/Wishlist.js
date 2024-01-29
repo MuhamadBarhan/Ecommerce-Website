@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import ProductListItem from '../ProductListItem/productlistitem'
+import ProductListItem from './Components/productlistitem'
 
-const Cart = () => {
-    const list=useSelector((state)=>state.cart.list)
+const Wishlist = () => {
+    const list=useSelector((state)=>state.wish.list)
   return (
     <>
     {list.map((item)=>(
@@ -13,4 +13,4 @@ const Cart = () => {
   )
 }
 
-export default Cart
+export default Wishlist

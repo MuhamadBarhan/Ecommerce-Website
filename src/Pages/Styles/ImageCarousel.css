@@ -28,7 +28,6 @@
   left: 32px;
   font-size: 45px;
   color: #fff;
-  z-index: 1;
   cursor: pointer;
   background: none;
   border: none;
@@ -39,7 +38,6 @@
   right: 32px;
   font-size: 45px;
   color: #fff;
-  z-index: 1;
   cursor: pointer;
   background: none;
   border: none;

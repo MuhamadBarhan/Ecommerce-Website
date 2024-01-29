@@ -10,6 +10,7 @@
     background: white;
     top: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 .logo {
@@ -51,7 +52,7 @@
     cursor: pointer;
     font-size: 0.85rem;
     text-decoration: none;
-    color: rgb(50, 50, 50)
+    color: rgb(50, 50, 50);
 }
 
 .desktopMenuListItem:hover {
@@ -81,13 +82,19 @@
 
 
 .navMenu {
-    background-color: white;
-    position: absolute;
+    background-color: rgb(235, 235, 235);
+    position: fixed;
     display: flex;
     flex-direction: column;
     top: 4rem;
-    right: 2rem;
-    border-radius: 0.5rem;
+    left: -250px; /* Start position off-screen */
+    height: 100vh;
+    width: 250px; /* Adjust the width as needed */
+    transition: left 0.3s ease-in-out; /* Transition the left property */
+}
+
+.show {
+    left: 0; /* Slide in from left */
 }
 
 .ListItem {
@@ -112,17 +119,23 @@
 
 
 @media screen and (max-width:450px) {
+    .logo {
+        object-fit: cover;
+        height: 1.5rem;
+        width: 6rem;
+        padding-top: 5px;
+    }
     .burger-menu {
         display: block;
         height: 2rem;
         padding: 1rem;
-
     }
 
     .desktopMenuListItem,
     .signupBtn,.mob-wrapper {
         display: none;
     }
+    
     .wrapper {
         width: 13rem;
     }
@@ -138,3 +151,4 @@
     }
 
 }
+

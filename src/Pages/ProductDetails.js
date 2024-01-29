@@ -1,23 +1,26 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { products } from '../data/Products';
-import './ProductDetails.css'
+import './Styles/ProductDetails.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBoltLightning } from '@fortawesome/free-solid-svg-icons';
-import { useDispatch } from 'react-redux';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../redux/reducer/cart';
 
 
 const ProductDetails = () => {
   const params = useParams();
+  const navigate=useNavigate();
   const dispatch=useDispatch();
   const item = products.find((element) => element.id === parseInt(params.id));
+  const list=useSelector((state)=> state.cart.list);
+  const element=list.find((value)=>value.id===item.id);
 
   const addToCart = () => {
     dispatch(addItem(item));
   };
-
 
   return (
     <div className="product-detail" key={item.id} >
@@ -29,8 +32,9 @@ const ProductDetails = () => {
         <span style={{ paddingLeft: '0.5rem' ,fontWeight:'700',fontSize:'30px'}}>Rs.{item.newprice}</span>
         <span style={{ paddingLeft: '0.5rem' ,color:'gray',fontWeight:'500'}}><strike>Rs.{item.oldprice}</strike></span>
         <div className="buyProduct">
-          <button className='pd-btn cart' onClick={addToCart}><FontAwesomeIcon icon={faCartShopping}/> Add to Cart</button>
-          <button className='pd-btn buy'><FontAwesomeIcon icon={faBoltLightning}/> Buy Now</button>
+          {element?.count>0 ? <button className='pd-btn goto' onClick={()=>navigate('/cart')}><FontAwesomeIcon icon={faCircleCheck}/> Go to Cart</button>:
+            <button className='pd-btn cart' onClick={addToCart}><FontAwesomeIcon icon={faCartShopping}/> Add to Cart</button>}
+          <button className='pd-btn buy' onClick={()=>navigate(`/buynow/${item.id}`)}><FontAwesomeIcon icon={faBoltLightning}/> Buy Now</button>
         </div>
       </div>
     </div>
