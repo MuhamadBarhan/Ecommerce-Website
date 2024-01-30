@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState}  from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { products } from '../data/Products';
 import './Styles/ProductDetails.css'
@@ -14,16 +14,24 @@ const ProductDetails = () => {
   const params = useParams();
   const navigate=useNavigate();
   const dispatch=useDispatch();
+  const [alert,setAlert]=useState(false);
   const item = products.find((element) => element.id === parseInt(params.id));
   const list=useSelector((state)=> state.cart.list);
   const element=list.find((value)=>value.id===item.id);
 
   const addToCart = () => {
+    setAlert(true);
+    setTimeout(()=>setAlert(false),3000)
     dispatch(addItem(item));
   };
 
   return (
+    <div>
+       {alert && <div className="alertBox">
+       <span className="alertSuccess">Item added to Cart <FontAwesomeIcon icon={faCircleCheck}/></span>
+       </div>}
     <div className="product-detail" key={item.id} >
+     
       <div className="pd-image-container">
         <img src={item.image} alt={item.name} className="pd-image" />
       </div>
@@ -37,6 +45,7 @@ const ProductDetails = () => {
           <button className='pd-btn buy' onClick={()=>navigate(`/buynow/${item.id}`)}><FontAwesomeIcon icon={faBoltLightning}/> Buy Now</button>
         </div>
       </div>
+    </div>
     </div>
   )
 }
